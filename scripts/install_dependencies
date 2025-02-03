@@ -1,4 +1,13 @@
 #!/bin/bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
 
+# עדכון המערכת
+sudo yum update -y
+
+# התקנת Docker
+sudo amazon-linux-extras enable docker
+sudo yum install -y docker
+
+# הפעלת Docker
+sudo systemctl start docker
+sudo systemctl enable docker
