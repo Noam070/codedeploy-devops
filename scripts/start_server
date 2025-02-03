@@ -1,4 +1,6 @@
 #!/bin/bash
-docker run --name lidor-nginx -d -p 80:80 nginx
+# Pull the latest image from Docker Hub
+docker pull noam070/final-proj:v1.0
 
-
+# Run the container
+docker run -d --name final-proj -p 8085:5000 noam070/final-proj:v1.0
