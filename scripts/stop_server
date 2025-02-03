@@ -1,3 +1,4 @@
 #!/bin/bash
-docker stop lidor-nginx
-docker rm lidor-nginx
+# Stop and remove the existing Docker container if it exists
+docker stop final-proj || true
+docker rm final-proj || true
