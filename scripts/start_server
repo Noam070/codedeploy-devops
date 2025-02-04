@@ -1,6 +1,14 @@
 #!/bin/bash
-# Pull the latest image from Docker Hub
-docker pull noam070/final-proj:v1.0
+set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
 
-# Run the container
-docker run -d --name final-proj -p 8085:5000 noam070/final-proj:v1.0
+# הורדת ה-image המעודכן מה-Docker Hub
+docker pull Noam070/final-proj:v1.0
+
+# עצירת הקונטיינר הקודם (אם קיים)
+docker stop final-proj || true
+docker rm final-proj || true
+
+# הפעלת ה-container בצורה קבועה ושימוש בפורטים הנכונים
+docker run -d --restart always --name final-proj -p 8085:5000 Noam070/final-proj:v1.0
+
+
