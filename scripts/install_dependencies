@@ -8,6 +8,13 @@ sudo yum update -y
 sudo amazon-linux-extras enable docker
 sudo yum install -y docker
 
-# הפעלת Docker
+# הוספת המשתמש ec2-user לקבוצת Docker כדי לאפשר הפעלת קונטיינרים ללא sudo
+sudo usermod -aG docker ec2-user
+
+# הפעלת Docker והגדרת הפעלה אוטומטית
 sudo systemctl start docker
 sudo systemctl enable docker
+sudo systemctl restart docker  # לוודא שהשירות עולה בצורה תקינה
+
+# בדיקת התקנה
+docker --version
