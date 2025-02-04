@@ -1,4 +1,6 @@
 #!/bin/bash
-# Stop and remove the existing Docker container if it exists
+set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
+
+# עצירת הקונטיינר אם הוא רץ
 docker stop final-proj || true
 docker rm final-proj || true
