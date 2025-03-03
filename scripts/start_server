@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
+set -e  # Stop the script if any command fails
 
 # Pull the latest image from Docker Hub
 docker pull noam070/final-proj:v1.0
