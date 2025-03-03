@@ -1,20 +1,20 @@
 #!/bin/bash
-set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
+set -e  # Stop the script if any command fails
 
-# עדכון המערכת
+# Update the system
 sudo yum update -y
 
-# התקנת Docker
+# Install Docker
 sudo amazon-linux-extras enable docker
 sudo yum install -y docker
 
-# הוספת המשתמש ec2-user לקבוצת Docker כדי לאפשר הפעלת קונטיינרים ללא sudo
+# Add the ec2-user to the Docker group to allow running containers without sudo
 sudo usermod -aG docker ec2-user
 
-# הפעלת Docker והגדרת הפעלה אוטומטית
+# Start Docker and enable it to start automatically on boot
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo systemctl restart docker  # לוודא שהשירות עולה בצורה תקינה
+sudo systemctl restart docker  # Ensure the service starts properly
 
-# בדיקת התקנה
+# Verify installation
 docker --version
