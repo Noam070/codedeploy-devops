@@ -1,6 +1,6 @@
 #!/bin/bash
-set -e  # עצור את הסקריפט אם יש שגיאה כלשהי
+set -e # Stop the script if any command fails
 
-# עצירת הקונטיינר אם הוא רץ
+# Stop and remove the container if it is running
 docker stop final-proj || true
 docker rm final-proj || true
